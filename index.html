@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <title>Great Lock In</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <header>
+        <p class="sub-title">10/4 → 12/31</p>
+        <h1>GREAT LOCK IN</h1>
+        <p id="today"></p>
+    </header>
+
+    <section class="card">
+        <div class="section-title">
+            <h2>今日のタスク</h2>
+            <span id="progressText">0 / 7</span>
+        </div>
+
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+
+        <div class="tasks">
+
+            <label class="task">
+                <input type="checkbox" data-task="wake">
+                <span>🌅 5:30 起床</span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" data-task="fe">
+                <span>💻 基本情報 40分</span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" data-task="mix">
+                <span>🎛️ MIX</span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" data-task="guitar">
+                <span>🎸 ギター</span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" data-task="gym">
+                <span>🏋️ ジム</span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" data-task="reading">
+                <span>📚 読書</span>
+            </label>
+
+            <label class="task">
+                <input type="checkbox" data-task="sleep">
+                <span>🌙 23:00 就寝</span>
+            </label>
+
+        </div>
+    </section>
+<section class="card">
+
+    <div class="section-title">
+        <h2>📅 CALENDAR</h2>
+
+        <div class="calendar-buttons">
+            <button id="prevMonth" class="small-button">←</button>
+            <button id="nextMonth" class="small-button">→</button>
+        </div>
+    </div>
+
+    <h3 id="calendarTitle"></h3>
+
+    <div class="weekdays">
+        <span>日</span>
+        <span>月</span>
+        <span>火</span>
+        <span>水</span>
+        <span>木</span>
+        <span>金</span>
+        <span>土</span>
+    </div>
+
+    <div id="calendar" class="calendar"></div>
+
+    <div class="calendar-legend">
+        <span>● 100%</span>
+        <span>◐ 一部達成</span>
+        <span>○ 未達成</span>
+    </div>
+
+</section>
+<section class="card">
+
+    <div class="section-title">
+        <h2>🔥 LOCK IN</h2>
+        <span id="streakStatus">KEEP GOING</span>
+    </div>
+
+    <div class="streak-main">
+        <strong id="currentStreak">0</strong>
+        <span>DAYS STREAK</span>
+    </div>
+
+    <div class="fe-stats">
+
+        <div>
+            <strong id="bestStreak">0</strong>
+            <span>最長記録</span>
+        </div>
+
+        <div>
+            <strong id="weeklyRate">0%</strong>
+            <span>今週</span>
+        </div>
+
+        <div>
+            <strong id="totalComplete">0</strong>
+            <span>達成日</span>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="card">
+
+    <div class="section-title">
+        <h2>🏋️ GYM</h2>
+        <span id="gymStatus">---</span>
+    </div>
+
+    <p class="small" id="lastGym">
+        前回：記録なし
+    </p>
+
+    <p class="small" id="nextGym">
+        ジムに行った日に「今日のタスク」でチェック
+    </p>
+
+</section>
+<section class="card">
+
+    <div class="section-title">
+        <h2>💻 FE STUDY</h2>
+        <span id="feCountdown">---</span>
+    </div>
+
+    <div class="fe-stats">
+
+        <div>
+            <strong id="feDays">0</strong>
+            <span>勉強日</span>
+        </div>
+
+        <div>
+            <strong id="feHours">0h</strong>
+            <span>累計</span>
+        </div>
+
+        <div>
+            <strong>12/20</strong>
+            <span>試験日</span>
+        </div>
+
+    </div>
+
+</section>
+    <section class="card">
+
+        <h2>💰 Gambling</h2>
+
+        <p class="small">
+            10月の投入額
+        </p>
+
+        <div class="money-row">
+            <span>¥</span>
+            <input
+                type="number"
+                id="gamblingInput"
+                min="0"
+                step="100"
+                placeholder="0"
+            >
+        </div>
+
+        <button id="addGambling">
+            今日の投入額を追加
+        </button>
+
+        <div class="money-total">
+            <span>今月</span>
+            <strong id="gamblingTotal">
+                ¥0 / ¥5,000
+            </strong>
+        </div>
+
+        <div class="progress-bar">
+            <div id="gamblingFill"></div>
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🔥 DEADLINES</h2>
+
+        <div class="deadline">
+            <div>
+                <strong>Beautification</strong>
+                <p>1st Release</p>
+            </div>
+
+            <span>10/17</span>
+        </div>
+
+        <div class="deadline">
+            <div>
+                <strong>Black Monde</strong>
+                <p>2nd Release</p>
+            </div>
+
+            <span>10/31</span>
+        </div>
+
+        <div class="deadline">
+            <div>
+                <strong>Vestige</strong>
+                <p>3rd Release</p>
+            </div>
+
+            <span>11/15</span>
+        </div>
+
+        <div class="deadline important">
+            <div>
+                <strong>基本情報技術者試験</strong>
+                <p>FE Exam</p>
+            </div>
+
+            <span>12/20</span>
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🎯 12/31 GOALS</h2>
+
+        <p>💻 基本情報 12/20受験</p>
+        <p>🎛️ 3曲リリース</p>
+        <p>🎸 16分 BPM180+</p>
+        <p>🏋️ ジム 2日に1回</p>
+        <p>📚 本 2冊</p>
+        <p>💰 ギャンブル 月5,000円以内</p>
+        <p>💵 自力収入 1円以上</p>
+
+    </section>
+
+
+    <p class="rule">
+        2日連続で崩さない。
+    </p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
